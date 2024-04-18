@@ -1,0 +1,14 @@
+<suite name="Suite" preserve-order="true">
+  <test name="Test">
+    <classes>
+      <class name="cloudsyCreatesAffaire.testNG">
+        <methods>
+          <include name="testOpenCloudsys"/>
+          <include name="testOpenCommerciale"/>
+          <include name="testCreateAffaire"/>
+          <include name="testSearchAffaire"/>
+        </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
