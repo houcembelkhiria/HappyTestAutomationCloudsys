@@ -57,7 +57,13 @@ public class testNG {
     @Test
     public void testCreateAffaire() {
         System.out.println("createAffaiere started !!!");
-        driver.findElement(By.id("B11386816663854057")).click();
+        WebElement createBtn = driver.findElement(By.id("B11386816663854057"));
+        WebDriverWait webdwaitCreateBtn = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebElement clickableElement1 = webdwaitCreateBtn.until(ExpectedConditions.elementToBeClickable(createBtn));
+        clickableElement1.click();
+        
+        //driver.findElement(By.id("B11386816663854057")).click();
+        
         WebElement element = driver.findElement(By.xpath("//a[contains(@class, 'a-Button--popupLOV')]"));
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].scrollIntoView(true);", element);
