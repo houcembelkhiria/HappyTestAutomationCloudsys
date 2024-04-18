@@ -85,12 +85,12 @@ public class testNG {
                 break;
             }
         }           
-        Set<String> windowHandles2 = driver.getWindowHandles();
+        /*Set<String> windowHandles2 = driver.getWindowHandles();
         for (String windowHandle : windowHandles) {
             if (driver.switchTo().window(windowHandle).getTitle().equals("Mise à jour information affaires")) {
                 break;
             }
-        }
+        }*/
         driver.findElement(By.id("P117_DESCRIPTION_BESOIN")).sendKeys("test automation");
         driver.findElement(By.id("B151988927049331746")).click();
         driver.findElement(By.id("B153509924327533811")).click();
