@@ -154,6 +154,7 @@ public class testNG {
 
         Assert.assertTrue(tdElement.isDisplayed(), "Le champ dans le tableau doit être visible pour verifier la creation de l affaires.");
  */
+        // Retry mechanism parameters
         int maxRetries = 3;
         int retryCount = 0;
         boolean isElementDisplayed = false;
@@ -162,25 +163,30 @@ public class testNG {
         while (retryCount < maxRetries && !isElementDisplayed) {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-            // Wait for the presence of the table cell element
-            WebElement tdElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='11368620578813503']//td[contains(text(), '" + randomVerification + "')]")));
+            // Wait for the presence of the table cell element, ignoring StaleElementReferenceException
+            WebElement tdElement = wait.ignoring(StaleElementReferenceException.class)
+                                       .until(driver -> {
+                                           WebElement element = driver.findElement(By.xpath("//table[@id='11368620578813503']//td[contains(text(), '" + randomVerification + "')]"));
+                                           if (element.isDisplayed()) {
+                                               return element;
+                                           } else {
+                                               return null; // Return null if element is not displayed
+                                           }
+                                       });
 
             // Check if the element is displayed
-            if (tdElement.isDisplayed()) {
-                isElementDisplayed = true; // Set flag to true if element is displayed
+            if (tdElement != null) {
+                isElementDisplayed = true;
                 System.out.println("Element is displayed.");
             } else {
-                System.out.println("Element is not displayed.");
+                System.out.println("StaleElementReferenceException occurred. Retrying...");
+                retryCount++;
             }
-
-            retryCount++;
         }
 
         // Assert if the element is displayed after retrying
         Assert.assertTrue(isElementDisplayed, "Element should be displayed after multiple retries.");
 
-        
-        
         System.out.println("searchAffaire ended");
     }
 
