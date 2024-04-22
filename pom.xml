@@ -4,7 +4,11 @@
   <artifactId>cloudsyCreatesAffaire</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-  
+  <properties>
+	<suiteFile>
+		testng.xml
+	</suiteFile>
+  </properties>
     <dependencies>
 	<dependency>
     <groupId>org.testng</groupId>

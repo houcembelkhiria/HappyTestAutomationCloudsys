@@ -6,7 +6,9 @@
       <class name="cloudsyCreatesAffaire.testNG">
         <methods>
           <include name="testSearchAffaire"/>
+          <include name="testOpenCloudsys"/>
           <include name="preConfigure"/>
+          <include name="testOpenCommerciale"/>
           <include name="tearDown"/>
           <include name="testCreateAffaire"/>
         </methods>
