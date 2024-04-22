@@ -1,12 +1,15 @@
 <suite name="Suite" preserve-order="true">
+  <listeners>
+    <listener class-name="cloudsyCreatesAffaire.CustomTestListener" />
+  </listeners>
   <test name="Test">
     <classes>
       <class name="cloudsyCreatesAffaire.testNG">
         <methods>
           <include name="testOpenCloudsys"/>
-          <include name="testOpenCommerciale"/>
-          <include name="testCreateAffaire"/>
-          <include name="testSearchAffaire"/>
+          <include name="testOpenCommerciale" />
+          <include name="testCreateAffaire" />
+          <include name="testSearchAffaire" />
         </methods>
       </class>
     </classes>
