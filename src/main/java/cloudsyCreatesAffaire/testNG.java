@@ -89,22 +89,19 @@ public class testNG {
 
     @Test
     public void testCreateAffaire() {
-
         System.out.println("createAffaiere started !!!");
-      
 
-        //driver.findElement(By.id("B11386816663854057")).click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        WebElement btnCreateAffaire = wait.until(ExpectedConditions.elementToBeClickable(By.id("B11386816663854057")));
+        // Click on the button to create Affaire
+        WebDriverWait waitCreateAffaireBtn = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement btnCreateAffaire = waitCreateAffaireBtn.until(ExpectedConditions.elementToBeClickable(By.id("B11386816663854057")));
         btnCreateAffaire.click();
 
-        WebElement element = driver.findElement(By.xpath("//a[contains(@class, 'a-Button--popupLOV')]"));
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
-        executor.executeScript("arguments[0].scrollIntoView(true);", element);
-        WebDriverWait webdwait2 = new WebDriverWait(driver, Duration.ofSeconds(15));
-        WebElement clickableElement = webdwait2.until(ExpectedConditions.elementToBeClickable(element));
-        clickableElement.click();
+        // Click on the element in the pop-up window
+        WebDriverWait waitElementInPopup = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebElement element = waitElementInPopup.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@class, 'a-Button--popupLOV')]")));
+        element.click();
+
+        // Switch to the pop-up window
         Set<String> windowHandles = driver.getWindowHandles();
         Iterator<String> iterator = windowHandles.iterator();
         while (iterator.hasNext()) {
@@ -112,26 +109,33 @@ public class testNG {
             driver.switchTo().window(childWindow);
             System.out.println(driver.getTitle() + " opened");
             if (driver.getTitle().equals("Search Dialog")) {
+                // Search for an element
                 driver.findElement(By.id("SEARCH")).sendKeys("stn");
                 WebElement searchButton = driver.findElement(By.xpath("//input[@type='button' and @value='Search']"));
                 searchButton.click();
+                // Click on a link
                 WebElement linkElement = driver.findElement(By.xpath("//a[contains(text(), 'Les Travaux du Nord (STN)')]"));
                 linkElement.click();
                 break;
             }
         }
+
+        // Switch back to the main window
         Set<String> windowHandles2 = driver.getWindowHandles();
-        for (String windowHandle : windowHandles) {
+        for (String windowHandle : windowHandles2) {
             if (driver.switchTo().window(windowHandle).getTitle().equals("Mise à jour information affaires")) {
                 break;
             }
         }
+
+        // Enter some data and perform clicks
         driver.findElement(By.id("P117_DESCRIPTION_BESOIN")).sendKeys(randomVerification);
         driver.findElement(By.id("B151988927049331746")).click();
         driver.findElement(By.id("B153509924327533811")).click();
-        System.out.println("createAffaire ended !!!");
 
+        System.out.println("createAffaire ended !!!");
     }
+
 
     @Test
     public void testSearchAffaire() {
