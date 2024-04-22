@@ -160,31 +160,25 @@ public class testNG {
 
         // Retry loop
         while (retryCount < maxRetries && !isElementDisplayed) {
-            try {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-                // Wait for the presence of the table cell element
-                WebElement tdElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='11368620578813503']//td[contains(text(), '" + randomVerification + "')]")));
+            // Wait for the presence of the table cell element
+            WebElement tdElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='11368620578813503']//td[contains(text(), '" + randomVerification + "')]")));
 
-                // Check if the element is displayed
-                if (tdElement.isDisplayed()) {
-                    isElementDisplayed = true; // Set flag to true if element is displayed
-                    System.out.println("Element is displayed.");
-                } else {
-                    System.out.println("Element is not displayed.");
-                }
-            } catch (StaleElementReferenceException e) {
-                // Increment retry count
-                retryCount++;
-                System.out.println("StaleElementReferenceException occurred. Retrying attempt " + retryCount + " out of " + maxRetries);
+            // Check if the element is displayed
+            if (tdElement.isDisplayed()) {
+                isElementDisplayed = true; // Set flag to true if element is displayed
+                System.out.println("Element is displayed.");
+            } else {
+                System.out.println("Element is not displayed.");
             }
+
+            retryCount++;
         }
 
-        if (!isElementDisplayed) {
-            System.out.println("Failed to display the element after " + maxRetries + " retries.");
-            // Handle failure scenario here, such as failing the test or throwing an exception
-            // throw new RuntimeException("Failed to display the element after multiple retries.");
-        }
+        // Assert if the element is displayed after retrying
+        Assert.assertTrue(isElementDisplayed, "Element should be displayed after multiple retries.");
+
         
         
         System.out.println("searchAffaire ended");

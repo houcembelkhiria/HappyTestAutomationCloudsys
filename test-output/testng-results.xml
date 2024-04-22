@@ -2,32 +2,32 @@
 <testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-04-22T11:27:26 GMT+01:00" name="Suite" finished-at="2024-04-22T11:28:06 GMT+01:00" duration-ms="40270">
+  <suite started-at="2024-04-22T11:59:54 GMT+01:00" name="Suite" finished-at="2024-04-22T12:00:32 GMT+01:00" duration-ms="38615">
     <groups>
     </groups>
-    <test started-at="2024-04-22T11:27:26 GMT+01:00" name="Test" finished-at="2024-04-22T11:28:06 GMT+01:00" duration-ms="40270">
+    <test started-at="2024-04-22T11:59:54 GMT+01:00" name="Test" finished-at="2024-04-22T12:00:32 GMT+01:00" duration-ms="38615">
       <class name="cloudsyCreatesAffaire.testNG">
-        <test-method is-config="true" signature="preConfigure()[pri:0, instance:cloudsyCreatesAffaire.testNG@4d4d8fcf]" started-at="2024-04-22T11:27:26 GMT+01:00" name="preConfigure" finished-at="2024-04-22T11:27:38 GMT+01:00" duration-ms="12441" status="PASS">
+        <test-method is-config="true" signature="preConfigure()[pri:0, instance:cloudsyCreatesAffaire.testNG@4d4d8fcf]" started-at="2024-04-22T11:59:54 GMT+01:00" name="preConfigure" finished-at="2024-04-22T12:00:02 GMT+01:00" duration-ms="7854" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preConfigure -->
-        <test-method signature="testOpenCloudsys()[pri:0, instance:cloudsyCreatesAffaire.testNG@4d4d8fcf]" started-at="2024-04-22T11:27:39 GMT+01:00" name="testOpenCloudsys" finished-at="2024-04-22T11:27:45 GMT+01:00" duration-ms="6921" status="PASS">
+        <test-method signature="testOpenCloudsys()[pri:0, instance:cloudsyCreatesAffaire.testNG@4d4d8fcf]" started-at="2024-04-22T12:00:02 GMT+01:00" name="testOpenCloudsys" finished-at="2024-04-22T12:00:09 GMT+01:00" duration-ms="7730" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testOpenCloudsys -->
-        <test-method signature="testOpenCommerciale()[pri:0, instance:cloudsyCreatesAffaire.testNG@4d4d8fcf]" started-at="2024-04-22T11:27:45 GMT+01:00" name="testOpenCommerciale" finished-at="2024-04-22T11:27:47 GMT+01:00" duration-ms="1939" status="PASS">
+        <test-method signature="testOpenCommerciale()[pri:0, instance:cloudsyCreatesAffaire.testNG@4d4d8fcf]" started-at="2024-04-22T12:00:09 GMT+01:00" name="testOpenCommerciale" finished-at="2024-04-22T12:00:11 GMT+01:00" duration-ms="1557" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testOpenCommerciale -->
-        <test-method signature="testCreateAffaire()[pri:0, instance:cloudsyCreatesAffaire.testNG@4d4d8fcf]" started-at="2024-04-22T11:27:47 GMT+01:00" name="testCreateAffaire" finished-at="2024-04-22T11:28:03 GMT+01:00" duration-ms="15119" status="PASS">
+        <test-method signature="testCreateAffaire()[pri:0, instance:cloudsyCreatesAffaire.testNG@4d4d8fcf]" started-at="2024-04-22T12:00:11 GMT+01:00" name="testCreateAffaire" finished-at="2024-04-22T12:00:29 GMT+01:00" duration-ms="17830" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCreateAffaire -->
-        <test-method signature="testSearchAffaire()[pri:0, instance:cloudsyCreatesAffaire.testNG@4d4d8fcf]" started-at="2024-04-22T11:28:03 GMT+01:00" name="testSearchAffaire" finished-at="2024-04-22T11:28:06 GMT+01:00" duration-ms="3571" status="PASS">
+        <test-method signature="testSearchAffaire()[pri:0, instance:cloudsyCreatesAffaire.testNG@4d4d8fcf]" started-at="2024-04-22T12:00:29 GMT+01:00" name="testSearchAffaire" finished-at="2024-04-22T12:00:32 GMT+01:00" duration-ms="3385" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSearchAffaire -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:cloudsyCreatesAffaire.testNG@4d4d8fcf]" started-at="2024-04-22T11:28:06 GMT+01:00" name="tearDown" finished-at="2024-04-22T11:28:06 GMT+01:00" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:cloudsyCreatesAffaire.testNG@4d4d8fcf]" started-at="2024-04-22T12:00:32 GMT+01:00" name="tearDown" finished-at="2024-04-22T12:00:32 GMT+01:00" duration-ms="4" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
