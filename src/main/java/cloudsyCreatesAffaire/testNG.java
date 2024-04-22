@@ -147,7 +147,7 @@ public class testNG {
         //WebElement tdElement = driver.findElement(By.xpath("//table[@id='11368620578813503']//td[contains(text(), '" + randomVerification + "')]"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        WebElement tdElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='11368620578813503']//td[contains(text(), '" + randomVerification  +  "')]")));
+        WebElement tdElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='11368620578813503']//td[contains(text(), '" +randomVerification+"')]")));
 
         Assert.assertTrue(tdElement.isDisplayed(), "Le champ dans le tableau doit être visible pour verifier la creation de l affaires.");
         
