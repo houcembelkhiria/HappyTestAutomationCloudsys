@@ -8,6 +8,7 @@ import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -140,17 +141,20 @@ public class testNG {
     @Test
     public void testSearchAffaire() {
         System.out.println("searchAffaire started ");
+        driver.navigate().refresh();
         driver.findElement(By.id("B151989358334331746")).click();
         driver.findElement(By.id("R11368507481813501_search_field")).sendKeys(randomVerification);
         driver.findElement(By.id("R11368507481813501_search_button")).click();
         
+        
+        
         //WebElement tdElement = driver.findElement(By.xpath("//table[@id='11368620578813503']//td[contains(text(), '" + randomVerification + "')]"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
+       
         WebElement tdElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='11368620578813503']//td[contains(text(), '" +randomVerification+"')]")));
 
         Assert.assertTrue(tdElement.isDisplayed(), "Le champ dans le tableau doit être visible pour verifier la creation de l affaires.");
-        
+ 
         System.out.println("searchAffaire ended");
     }
 
