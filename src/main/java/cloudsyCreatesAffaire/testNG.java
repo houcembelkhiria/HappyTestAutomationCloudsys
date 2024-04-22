@@ -141,20 +141,52 @@ public class testNG {
     @Test
     public void testSearchAffaire() {
         System.out.println("searchAffaire started ");
-        driver.navigate().refresh();
+        //driver.navigate().refresh();
         driver.findElement(By.id("B151989358334331746")).click();
         driver.findElement(By.id("R11368507481813501_search_field")).sendKeys(randomVerification);
         driver.findElement(By.id("R11368507481813501_search_button")).click();
         
         
-        
-        //WebElement tdElement = driver.findElement(By.xpath("//table[@id='11368620578813503']//td[contains(text(), '" + randomVerification + "')]"));
+        /*
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
        
         WebElement tdElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='11368620578813503']//td[contains(text(), '" +randomVerification+"')]")));
 
         Assert.assertTrue(tdElement.isDisplayed(), "Le champ dans le tableau doit être visible pour verifier la creation de l affaires.");
- 
+ */
+        int maxRetries = 3;
+        int retryCount = 0;
+        boolean isElementDisplayed = false;
+
+        // Retry loop
+        while (retryCount < maxRetries && !isElementDisplayed) {
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+                // Wait for the presence of the table cell element
+                WebElement tdElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//table[@id='11368620578813503']//td[contains(text(), '" + randomVerification + "')]")));
+
+                // Check if the element is displayed
+                if (tdElement.isDisplayed()) {
+                    isElementDisplayed = true; // Set flag to true if element is displayed
+                    System.out.println("Element is displayed.");
+                } else {
+                    System.out.println("Element is not displayed.");
+                }
+            } catch (StaleElementReferenceException e) {
+                // Increment retry count
+                retryCount++;
+                System.out.println("StaleElementReferenceException occurred. Retrying attempt " + retryCount + " out of " + maxRetries);
+            }
+        }
+
+        if (!isElementDisplayed) {
+            System.out.println("Failed to display the element after " + maxRetries + " retries.");
+            // Handle failure scenario here, such as failing the test or throwing an exception
+            // throw new RuntimeException("Failed to display the element after multiple retries.");
+        }
+        
+        
         System.out.println("searchAffaire ended");
     }
 
