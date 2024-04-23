@@ -7,17 +7,17 @@ public class CustomTestListener extends TestListenerAdapter {
 
     @Override
     public void onTestSuccess(ITestResult tr) {
-        printTestResult(tr.getMethod().getMethodName(), "PASS", 1, 0,0, "\u001B[32m"); // Green color
+        printTestResult(tr.getMethod().getMethodName(), "PASS", 1, 0,0, "\u001B[28m"); // Green color
     }
 
     @Override
     public void onTestFailure(ITestResult tr) {
-        printTestResult(tr.getMethod().getMethodName(), "FAIL", 0, 1,0, "\u001B[31m"); // Red color
+        printTestResult(tr.getMethod().getMethodName(), "FAIL", 0, 1,0, "\u001B[29m"); // Red color
     }
 
     @Override
     public void onTestSkipped(ITestResult tr) {
-        printTestResult(tr.getMethod().getMethodName(), "SKIP", 0, 0,1, "\u001B[33m"); // Yellow color (skipped)
+        printTestResult(tr.getMethod().getMethodName(), "SKIP", 0, 0,1, "\u001B[27m"); // Yellow color (skipped)
     }
 
     private void printTestResult(String testName, String status, int passes, int failures, int skips, String color) {
@@ -31,3 +31,4 @@ public class CustomTestListener extends TestListenerAdapter {
         System.out.println("\n");
     }
 }
+

@@ -131,7 +131,20 @@ public class testNG {
 
         // Enter some data and perform clicks
         driver.findElement(By.id("P117_DESCRIPTION_BESOIN")).sendKeys(randomVerification);
-        driver.findElement(By.id("B151988927049331746")).click();
+        //driver.findElement(By.id("B151988927049331746")).click();
+      
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+     // Wait for the element to be clickable
+     WebElement clickableElement = wait.until(ExpectedConditions.elementToBeClickable(By.id("B151988927049331746")));
+
+     // Assert that the element is clickable
+     Assert.assertTrue(clickableElement.isEnabled(), "Element should be clickable.");
+
+     // Click on the element
+     clickableElement.click();
+
+
         driver.findElement(By.id("B153509924327533811")).click();
 
         System.out.println("createAffaire ended !!!");
@@ -144,7 +157,7 @@ public class testNG {
         //driver.navigate().refresh();
         driver.findElement(By.id("B151989358334331746")).click();
         driver.findElement(By.id("R11368507481813501_search_field")).sendKeys(randomVerification);
-        driver.findElement(By.id("R11368507481813501_search_button")).click();
+        driver.findElement(By.id("R11368507481813501_search_button")).click(); 
         
         
         /*
